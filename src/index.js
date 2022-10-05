@@ -19,7 +19,7 @@ inputSearch.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
 function onSearch(e) {
   e.preventDefault();
   let search = inputSearch.value;
-  // console.log('search: ',search);
+
   if (search.trim() === '') {
     countryList.innerHTML = '';
     countryInfo.innerHTML = '';
@@ -28,7 +28,6 @@ function onSearch(e) {
 
   fetchCountries(search.trim())
     .then(countries => {
-      // console.log(countries);
       if (countries.length > 10) {
         Notify.info(
           'Too many matches found. Please enter a more specific name.'
